@@ -95,36 +95,36 @@ services:
       - UMASK=002
       - TZ=America/Sao_Paulo
 
-radarr:
-  image: lscr.io/linuxserver/radarr:latest
-  container_name: radarr
-  restart: unless-stopped
-  network_mode: service:gluetun
-  depends_on:
-    gluetun:
-      condition: service_healthy
-  volumes:
-    - /home/skynet/docker/radarr/config:/config
-    - /mnt/usbhdd/data:/data
-    - /mnt/usbhdd/data/torrents:/downloads
-  environment:
-    - PUID=1000
-    - PGID=1003
-    - TZ=America/Sao_Paulo
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    restart: unless-stopped
+    network_mode: service:gluetun
+    depends_on:
+      gluetun:
+        condition: service_healthy
+    volumes:
+      - /home/skynet/docker/radarr/config:/config
+      - /mnt/usbhdd/data:/data
+      - /mnt/usbhdd/data/torrents:/downloads
+    environment:
+      - PUID=1000
+      - PGID=1003
+      - TZ=America/Sao_Paulo
 
-sonarr:
-  image: lscr.io/linuxserver/sonarr:latest
-  container_name: sonarr
-  restart: unless-stopped
-  network_mode: service:gluetun
-  depends_on:
-    gluetun:
-      condition: service_healthy
-  volumes:
-    - /home/skynet/docker/sonarr/data:/config
-    - /mnt/usbhdd/data/:/data
-    - /mnt/usbhdd/data/torrents:/downloads
-  environment:
-    - PUID=1000
-    - PGID=1003
-    - TZ=America/Sao_Paulo
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    restart: unless-stopped
+    network_mode: service:gluetun
+    depends_on:
+      gluetun:
+        condition: service_healthy
+    volumes:
+      - /home/skynet/docker/sonarr/data:/config
+      - /mnt/usbhdd/data/:/data
+      - /mnt/usbhdd/data/torrents:/downloads
+    environment:
+      - PUID=1000
+      - PGID=1003
+      - TZ=America/Sao_Paulo
