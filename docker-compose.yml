@@ -15,6 +15,7 @@ services:
       - 6969:6969           # whisparr
       - 7878:7878           # radarr
       - 8989:8989           # sonarr
+      - 6767:6767           # bazarr
     devices:
       - /dev/net/tun:/dev/net/tun
     volumes:
@@ -124,6 +125,22 @@ services:
       - /home/skynet/docker/sonarr/data:/config
       - /mnt/usbhdd/data/:/data
       - /mnt/usbhdd/data/torrents:/downloads
+    environment:
+      - PUID=1000
+      - PGID=1003
+      - TZ=America/Sao_Paulo
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    restart: unless-stopped
+    network_mode: service:gluetun
+    depends_on:
+      gluetun:
+        condition: service_healthy
+    volumes:
+      - /home/skynet/docker/bazarr/config:/config
+      - /mnt/usbhdd/data:/data
     environment:
       - PUID=1000
       - PGID=1003
