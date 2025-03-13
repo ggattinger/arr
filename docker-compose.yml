@@ -15,7 +15,6 @@ services:
       - 6969:6969           # whisparr
       - 7878:7878           # radarr
       - 8989:8989           # sonarr
-
     devices:
       - /dev/net/tun:/dev/net/tun
     volumes:
@@ -53,8 +52,6 @@ services:
     depends_on:
       gluetun:
         condition: service_healthy
-    # ports:
-    #   - 6789:6789
     volumes:
       - /home/skynet/docker/nbzget/data:/config
       - /mnt/usbhdd/data/torrents:/downloads
@@ -88,8 +85,6 @@ services:
     depends_on:
       gluetun:
         condition: service_healthy
-    # ports:
-    #   - 6969:6969
     volumes:
       - /home/skynet/docker/whisparr/data:/config
       - /mnt/usbhdd/data/media/XXX:/data
