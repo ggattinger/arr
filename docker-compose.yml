@@ -172,3 +172,4 @@ services:
       - STASH_GENERATED=/generated/
       - STASH_METADATA=/metadata/
       - STASH_CACHE=/cache/
+      - TZ=America/Sao_Paulo
