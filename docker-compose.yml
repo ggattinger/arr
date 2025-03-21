@@ -161,7 +161,7 @@ services:
         max-file: "10"
         max-size: "2m"
     volumes:
-      - /home/skynet/stash/config:/root/.stash
+      - /home/skynet/docker/stash/config:/root/.stash
       - /mnt/usbhdd/data/media/XXX:/data
       - /mnt/usbhdd/data/DockerData/stash/metadata:/metadata
       - /mnt/usbhdd/data/DockerData/stash/cache:/cache
