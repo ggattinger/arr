@@ -156,7 +156,7 @@ services:
         max-file: "10"
         max-size: "2m"
     ports:
-      -9999:9999
+      - 9999:9999
     volumes:
       - /home/skynet/docker/stash/config:/root/.stash
       - /mnt/usbhdd/data/media/XXX:/data
