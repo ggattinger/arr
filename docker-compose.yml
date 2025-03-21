@@ -162,11 +162,11 @@ services:
         max-size: "2m"
     volumes:
       - /home/skynet/stash/config:/root/.stash
-      - /mnt/uusbhdd/data/media/XXX:/data
-      - /mnt/uusbhdd/data/DockerData/stash/metadata:/metadata
-      - /mnt/uusbhdd/data/DockerData/stash/cache:/cache
-      - /mnt/uusbhdd/data/DockerData/stash/blobs:/blobs
-      - /mnt/uusbhdd/data/DockerData/stash/generated:/generated
+      - /mnt/usbhdd/data/media/XXX:/data
+      - /mnt/usbhdd/data/DockerData/stash/metadata:/metadata
+      - /mnt/usbhdd/data/DockerData/stash/cache:/cache
+      - /mnt/usbhdd/data/DockerData/stash/blobs:/blobs
+      - /mnt/usbhdd/data/DockerData/stash/generated:/generated
     environment:
       - STASH_STASH=/data/
       - STASH_GENERATED=/generated/
