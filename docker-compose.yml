@@ -16,6 +16,7 @@ services:
       - 7878:7878           # radarr
       - 8989:8989           # sonarr
       - 6767:6767           # bazarr
+      - 9999:9999           # stash
     devices:
       - /dev/net/tun:/dev/net/tun
     volumes:
@@ -145,3 +146,26 @@ services:
       - PUID=1000
       - PGID=1003
       - TZ=America/Sao_Paulo
+
+  stash:
+    image: stashapp/stash:latest
+    container_name: stash
+    restart: unless-stopped
+    network_mode: service:gluetun
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "2m"
+    volumes:
+      - /home/skynet/stash/config:/root/.stash
+      - /mnt/uusbhdd/data/media/XXX:/data
+      - /mnt/uusbhdd/data/DockerData/stash/metadata:/metadata
+      - /mnt/uusbhdd/data/DockerData/stash/cache:/cache
+      - /mnt/uusbhdd/data/DockerData/stash/blobs:/blobs
+      - /mnt/uusbhdd/data/DockerData/stash/generated:/generated
+    environment:
+      - STASH_STASH=/data/
+      - STASH_GENERATED=/generated/
+      - STASH_METADATA=/metadata/
+      - STASH_CACHE=/cache/
