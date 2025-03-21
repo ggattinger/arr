@@ -16,7 +16,6 @@ services:
       - 7878:7878           # radarr
       - 8989:8989           # sonarr
       - 6767:6767           # bazarr
-      - 9999:9999           # stash
     devices:
       - /dev/net/tun:/dev/net/tun
     volumes:
@@ -156,6 +155,8 @@ services:
       options:
         max-file: "10"
         max-size: "2m"
+    ports:
+      -9999:9999
     volumes:
       - /home/skynet/docker/stash/config:/root/.stash
       - /mnt/usbhdd/data/media/XXX:/data
