@@ -151,10 +151,6 @@ services:
     image: stashapp/stash:latest
     container_name: stash
     restart: unless-stopped
-    network_mode: service:gluetun
-    depends_on:
-      gluetun:
-        condition: service_healthy
     logging:
       driver: "json-file"
       options:
